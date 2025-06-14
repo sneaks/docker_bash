@@ -1,1 +1,84 @@
-alias dive="source venv/bin/activate"
+# 🧭 Directory navigation
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+# Beyond that, use Tab, jump tools, or meditate on your path
+
+# 🔧 System
+alias c="clear"
+alias reboot="sudo reboot"
+alias shutdown="sudo shutdown now"
+
+# 🐳 Docker
+alias dps="docker ps"
+alias di="docker images"
+alias drmf='docker stop $(docker ps -aq) && docker rm $(docker ps -aq)'
+alias dcu="docker-compose up -d"
+alias dcd="docker-compose down"
+dcbash() {
+  docker exec -it "$1" bash 2>/dev/null || docker exec -it "$1" sh
+}
+
+# 🧠 Git (the sacred rituals)
+alias gs="git status"
+alias ga="git add"
+alias gaa="git add -A"
+alias gc="git commit -m"
+alias gp="git push"
+alias gl="git log --oneline --graph --all"
+
+# 📈 Resource use
+alias psmem10="ps aux --sort=-%mem | head -10"
+alias pscpu10="ps aux --sort=-%cpu | head -10"
+alias ports='sudo lsof -i -P -n | grep LISTEN'
+
+# 📂 Disk
+alias dusage='du -sh * | sort -hr | head -10'
+alias dfree='df -h'
+
+# 💡 Networking
+alias myip='hostname -I | awk "{print \$1}"'
+
+# 🧪 Dev tools
+alias catjson='jq .'
+alias serve='python3 -m http.server'
+
+# 🔄 Reload
+alias src='source ~/.bashrc'
+
+# 🛡️ Safety first
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+
+alias l='ls -CF'
+alias la='ls -A'
+alias ll='ls -lah --color=auto'
+alias lt='ls -lt'         # sort by time
+alias lS='ls -lSh'        # sort by size
+alias lsd='ls -l | grep "^d"'  # only directories
+
+# 🔄 Daily Flow
+alias c="clear"
+alias ll="ls -alF"
+alias ..="cd .."
+alias ...="cd ../.."
+alias gs="git status"
+alias gc="git commit -m"
+alias gp="git push"
+alias src="source ~/.bashrc"
+
+# 🐳 Docker
+alias dps="docker ps"
+alias dcu="docker-compose up -d"
+alias dcd="docker-compose down"
+
+# ⚙️ System Monitor
+alias dfree='df -h'
+alias pscpu="ps aux --sort=-%cpu | head -10"
+alias psmem="ps aux --sort=-%mem | head -10"
+
+# Ollama
+alias orun='ollama run llama3'
+alias olist='ollama list'
+alias opull='ollama pull llama3'
