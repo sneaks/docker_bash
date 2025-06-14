@@ -24,3 +24,17 @@ help:
 	@echo "🚀 docker_bash Makefile Commands:"
 	@echo "  make inject NAME=container_name     # Injects profile into a running container"
 	@echo "  make copy DIR=target_directory      # Copies profile into a local project directory"
+
+
+# 🌀 Inject into all containers listed in NAME
+all:
+	@for container in $(NAME); do \
+		echo "📦 Injecting profile into container: $$container"; \
+		docker cp $(PROFILE_DIR)/.bashrc $$container:/root/.bashrc; \
+		docker cp $(PROFILE_DIR)/.aliases $$container:/root/.aliases; \
+		docker cp $(PROFILE_DIR)/.bash_profile $$container:/root/.bash_profile; \
+		docker cp $(PROFILE_DIR)/.motd.sh $$container:/root/.motd.sh; \
+		docker exec $$container chmod +x /root/.motd.sh; \
+		echo "✅ docker_bash profile injected into '$$container'"; \
+	done
+
