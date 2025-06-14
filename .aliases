@@ -1,0 +1,1 @@
+alias dive="source venv/bin/activate"
