@@ -23,3 +23,6 @@ Includes colorful prompts, helpful aliases, and a welcoming MOTD that says,
 ```bash
 make inject NAME=ollama
 make inject NAME=open-webui
+make all NAME=ollama open-webui aavios smearts # inject into multiple dcs
+
+This project is maintained by [@sneaks](https://github.com/sneaks)
