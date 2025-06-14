@@ -1,0 +1,16 @@
+# bash setup for docker compose
+
+volumes:
+  - ~/docker/.docker_profile/.bashrc:/root/.bashrc:ro
+  - ~/docker/.docker_profile/.aliases:/root/.aliases:ro
+  - ~/docker/.docker_profile/.bash_profile:/root/.bash_profile:ro
+  - ~/docker/.docker_profile/.motd.sh:/root/.motd.sh:ro
+  
+  
+  # bash setup for Dockerfile
+
+  docker cp ~/docker/docker_bash/.bashrc ollama:/root/.bashrc && \
+  docker cp ~/docker/docker_bash/.aliases ollama:/root/.aliases && \
+  docker cp ~/docker/docker_bash/.bash_profile ollama:/root/.bash_profile && \
+  docker cp ~/docker/docker_bash/.motd.sh ollama:/root/.motd.sh && \
+  docker exec ollama chmod +x /root/.motd.sh
